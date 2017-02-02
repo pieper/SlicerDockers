@@ -34,8 +34,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   rm -f /usr/share/applications/x11vnc.desktop && \
   apt-get clean
 
-# Get modified build of noVNC
-RUN git clone -b override-touch https://github.com/dit4c/noVNC.git /opt/noVNC && \
+# Get noVNC
+RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC && \
   rm -rf /opt/noVNC/.git
 
 # Add supporting files (directory at a time to improve build speed)

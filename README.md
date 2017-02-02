@@ -14,6 +14,8 @@ Then run the container with a command like this:
 
 `docker run -d -p 8080:8080 --name slicer stevepieper/slicer-chronicle`
 
+then open `localhost:8080` in your browser and click the "X11 Session" button.
+
 
 [slicer]: http://slicer.org
 
