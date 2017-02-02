@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+XINIT_PATTERN="xinit -- :0 .*"
+X_PATTERN="X :0 .*"
+
+pkill "$XINIT_PATTERN" || pkill -9 "$XINIT_PATTERN" || true
+pkill "$X_PATTERN" || pkill -9 "$X_PATTERN" || true
+
+rm -f /tmp/.X0-lock
+
+exec bash -l -c "xinit -- :0 -nolisten tcp vt$XDG_VTNR -noreset +extension GLX +extension RANDR +extension RENDER +extension XFIXES"

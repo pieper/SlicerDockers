@@ -1,0 +1,130 @@
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {
+  background-color: #e0675f;
+  font-family: 'Raleway', sans-serif;
+}
+
+#host {
+  color: white;
+}
+
+.main-logo {
+  width: 200px;
+}
+
+.resbaz-logo {
+  width: 40px;
+}
+
+.list-label {
+  margin-left: 15%;
+}
+
+.list-group, .well {
+  width: 20em;
+}
+
+.top-spacer {
+  height: 30%;
+}
+
+.well {
+  background-color: white;
+}
+
+</style>
+<script type="text/javascript">
+$(function() {
+  var isIP = /^\d+\./.test(window.location.host);
+  if (isIP) {
+    $('#host').text(window.location.host);
+  } else {
+    var host = window.location.host.replace(/\..*$/, "");
+    var domain = window.location.host.replace(/^[^\.]+\./, "");
+    $('#host').text(host);
+    $('#parent-link').attr('href', window.location.protocol+"//"+domain+"/");
+  }
+});
+</script>
+</head>
+<body>
+
+<div class="container">
+<div class="row hidden-xs top-spacer">
+
+</div>
+<div class="row">
+<div class="col-sm-offset-2 col-sm-4">
+
+<a id="parent-link" href="#">
+  <img class="main-logo center-block" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzMuOCIgaGVpZ2h0PSIxMzMuOCI+PGcgZmlsbD0iI2ZmZiI+PGc+PHBhdGggZD0iTTExNi41IDU0LjQ5Yy0uMDI2IDAtLjA1NS4wMDQtLjA4Ni4wMDQuMDE4LS4yNzQuMDg3LS41MzYuMDg3LS44MTcgMC04Ljg0LTcuNDYtMTYuMDAyLTE2LjY2LTE2LjAwMi00LjQyIDAtOC40MTQgMS42ODItMTEuMzk2IDQuMzgyLjAwNC0uMTUuMDI1LS4yOTguMDI1LS40NDggMC0xNC42NTgtMTIuMzc0LTI2LjU0NS0yNy42NC0yNi41NDUtMTUuMjYyIDAtMjcuNjM3IDExLjg4Ny0yNy42MzcgMjYuNTQ0IDAgLjYyNi4wNTIgMS4yNDIuMDk3IDEuODU4LTIuODA1LTEuMjYzLTUuOTIzLTEuOTg3LTkuMjIzLTEuOTg3LTEyLjA1IDAtMjEuODE3IDEwLjAzNC0yMS44MTcgMjEuNjA3IDAgMTEuNTczIDkuNzY3IDIxLjU5OCAyMS44MTcgMjEuNTk4SDExNi41YzguMzEgMCAxNS4wNS03LjExNSAxNS4wNS0xNS4wOTcgMC03Ljk4My02Ljc0LTE1LjEtMTUuMDUtMTUuMXoiLz48L2c+PGcgc3R5bGU9InRleHQtYWxpZ246c3RhcnQ7bGluZS1oZWlnaHQ6MTI1JTstaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOlNhbnMiIGZvbnQtc2l6ZT0iNDAiIGxldHRlci1zcGFjaW5nPSIwIiB3b3JkLXNwYWNpbmc9IjAiIGZvbnQtZmFtaWx5PSJBbGVncmV5YSBTYW5zIiBmb250LXdlaWdodD0iMzAwIj48cGF0aCBkPSJNMzIuNDcgODkuMTZjMy42MjcgMCA2LjQgMS4wNCA4LjMyIDMuMTIgMS45NDcgMi4wOCAyLjkyIDUuMDY3IDIuOTIgOC45NiAwIDQuNDU0LTEuMDI2IDcuODgtMy4wOCAxMC4yOC0yLjA1MyAyLjM3NC01IDMuNTYtOC44NCAzLjU2LTIgMC00LjY2Ni0uMDY2LTgtLjJsLjEyLTcuNzYtLjEyLTE3LjggOC42OC0uMTZtLS40IDI0LjE2YzMuMDY3IDAgNS40MTQtMSA3LjA0LTMgMS42NTQtMiAyLjQ4LTQuOTA2IDIuNDgtOC43MiAwLTMuNTItLjc4Ni02LjE3My0yLjM2LTcuOTYtMS41NzMtMS44MTMtMy44NjYtMi43Mi02Ljg4LTIuNzItMS41NDYgMC0zLjY5My4wNjctNi40NC4yTDI1Ljc5IDEwN2wuMDggNi4wOGMyLjQ1NC4xNiA0LjUyLjI0IDYuMi4yNCIgc3R5bGU9Ii1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246QWxlZ3JleWEgU2FucyBMaWdodCIvPjxwYXRoIGQ9Ik01MS41NzMgMTE0Ljg4aC0yLjA4bC4xMi03Ljc2LS4xMi0xNy44aDIuMTJsLS4xMiAxNy42OC4wOCA3Ljg4IiBzdHlsZT0iLWlua3NjYXBlLWZvbnQtc3BlY2lmaWNhdGlvbjpBbGVncmV5YSBTYW5zIExpZ2h0Ii8+PHBhdGggZD0iTTczLjg0OCA5MS4xNmwtNC4yOC0uMTJoLTMuMTJsLS4xMiAxNS45Ni4wOCA3Ljg4aC0yLjA4bC4xMi03Ljc2LS4xMi0xNi4wOGgtMy4xMmwtNC4zNi4xMi0uMTYtLjI0LjItMS42aDE2Ljk2bC4yLjI0LS4yIDEuNiIgc3R5bGU9Ii1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246QWxlZ3JleWEgU2FucyBMaWdodCIvPjxwYXRoIGQ9Ik05Mi4yMjUgMTExLjQ0bC0zLjI4LS4wNGgtLjY4bC4wOCA3LjA0LS4xNi4yLTEuNTYuMTYtLjE2LS4yLjA4LTcuMmgtOC4wNGwtMi4xNi4wNC0uMi0uMjR2LTEuNGwxMC4yNC0xNC43MmgxLjkybC0uMDQgMTQuNmgzLjk2bC4yLjI0LS4yIDEuNTJtLTUuNjgtMTMuNTZoLS4yNGwtOC4yIDExLjhoOC40NHYtMTEuOCIgc3R5bGU9Ii1pbmtzY2FwZS1mb250LXNwZWNpZmljYXRpb246QWxlZ3JleWEgU2FucyBMaWdodCIvPjxwYXRoIGQ9Ik0xMDYuNTMzIDg5LjEyYzIuNjY2IDAgNSAuNzA3IDcgMi4xMmwtLjQ0IDEuODgtLjMyLjA0Yy0xLjg2Ny0xLjQ5My0zLjk3NC0yLjI0LTYuMzItMi4yNC0yLjg1NCAwLTUuMDQuOTYtNi41NiAyLjg4LTEuNDk0IDEuOTItMi4yNCA0LjY5NC0yLjI0IDguMzIgMCAzLjYyNy43MzMgNi40IDIuMiA4LjMyIDEuNDY2IDEuODk0IDMuNTczIDIuODQgNi4zMiAyLjg0IDIuNTMzIDAgNC44NjYtLjg0IDctMi41MmwuMzIuMTItLjE2IDEuOTZjLTIuMjk0IDEuNTItNC43MiAyLjI4LTcuMjggMi4yOC0zLjM2IDAtNS45Ni0xLjEwNi03LjgtMy4zMi0xLjgxNC0yLjI0LTIuNzItNS40MjYtMi43Mi05LjU2IDAtNC4xODYuOTQ2LTcuNDEzIDIuODQtOS42OCAxLjkyLTIuMjkzIDQuNjQtMy40NCA4LjE2LTMuNDQiIHN0eWxlPSItaW5rc2NhcGUtZm9udC1zcGVjaWZpY2F0aW9uOkFsZWdyZXlhIFNhbnMgTGlnaHQiLz48L2c+PC9nPjwvc3ZnPg=="/>
+</a>
+<h4 id="host" class="text-center"></h4>
+
+</div>
+
+<div class="col-sm-4">
+
+<br class="hidden-xs"/>
+<br class="hidden-xs"/>
+
+<!-- Common tools -->
+<div class="list-group center-block">
+  <a class="list-group-item" href="/x11/" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="list-label">
+      X11 Session
+    </span>
+  </a>
+  <a id="novnc-notouch" style="display: none" class="list-group-item" href="/x11/vnc.html?autoconnect=true&path=x11/websockify&touch=false" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="list-label">
+      X11 w/o touch support
+    </span>
+  </a>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    if ('ontouchstart' in document.documentElement) {
+      $('#novnc-notouch').css('display','auto');
+    }
+  });
+  </script>
+  <a class="list-group-item" href="/tty/" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="list-label">
+      Shell Terminals
+    </span>
+  </a>
+  <a class="list-group-item" href="/files/" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-square fa-stack-2x"></i>
+      <i class="fa fa-folder-open fa-stack-1x fa-inverse"></i>
+    </span>
+    <span class="list-label">
+      File Management
+    </span>
+  </a>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

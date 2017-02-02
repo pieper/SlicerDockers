@@ -1,0 +1,19 @@
+commit 3ebbd76e27d7a9a3d9c54ac0c71e733572a0928d
+Author: Tim Dettrick <t.dettrick@uq.edu.au>
+Date:   Mon Jun 16 10:10:50 2014 +1000
+
+    Fixing file inclusion check for archive downloads.
+
+diff --git a/davutils.py b/davutils.py
+index c0a1121..918a04b 100644
+--- a/davutils.py
++++ b/davutils.py
+@@ -216,7 +216,7 @@ def add_to_zip_recursively(zipobj, real_path, root_dir, check_read):
+         root_dir += '/'
+     
+     for path in search_directory(real_path):
+-        if not os.path.isdir(path) or not check_read(path):
++        if not os.path.isdir(path) and not check_read(path):
+             continue
+         
+         assert path[:len(root_dir)] == root_dir
