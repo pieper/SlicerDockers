@@ -8,7 +8,7 @@
   <separator label="Openbox"/>
   <item label="Slicer">
     <action name="Execute">
-      <command>/opt/slicer/Slicer</command>
+      <command>/bin/bash -c "/opt/slicer/Slicer ${SLICER_ARGUMENTS}"</command>
     </action>
   </item>
   <!--<menu id="terminals-menu"/>
