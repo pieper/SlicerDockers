@@ -21,9 +21,11 @@ COPY /usr /usr
 
 # See http://na-mic.org/Mantis/view.php?id=4015
 RUN su researcher -c "mkdir /home/researcher/Documents"
+COPY /home/researcher/Documents /home/researcher/Documents
+RUN chown -R researcher:researcher /home/researcher/Documents
 
 COPY /home/researcher/.config /home/researcher/.config
-RUN chown -R researcher /home/researcher/.config
+RUN chown -R researcher:researcher /home/researcher/.config
 
 RUN LNUM=$(sed -n '/launcher_item_app/=' /etc/tint2/panel.tint2rc | head -1) && \
   sed -i "${LNUM}ilauncher_item_app = /opt/slicer/slicer.desktop" /etc/tint2/panel.tint2rc

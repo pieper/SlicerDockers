@@ -5,10 +5,12 @@ MAINTAINER pieper@isomics.com
 
 ARG COUCHDB_URL=http://quantome.org:5984
 ARG CHRONICLE_DB=chronicle
+ARG CHRONICLE_USER=""
 ARG OPERATIONS_DB=operations
 
 ENV COUCHDB_URL=$COUCHDB_URL
 ENV CHRONICLE_DB=$CHRONICLE_DB
+ENV CHRONICLE_USER=$CHRONICLE_USER
 ENV OPERATIONS_DB=$OPERATIONS_DB
 
 ARG S4EXT=/home/researcher/slicerExtensions
@@ -30,11 +32,8 @@ RUN (cd $S4EXT/SlicerChronicle/SlicerChronicle; \
         )
 
 
-# configure slicer as needed
-COPY /home/researcher/.config/NA-MIC/Slicer.ini /home/researcher/.config/NA-MIC/Slicer.ini
-RUN chown researcher:researcher /home/researcher/.config/NA-MIC/Slicer.ini
-
 COPY /home/researcher/.slicerrc.py /home/researcher
+RUN chown -R researcher:researcher /home/researcher/.slicerrc.py
 
 # configure slicer as needed
 ENV SLICER_ARGUMENTS="--additional-module-paths ${S4EXT}/SlicerChronicle/SlicerChronicle"
