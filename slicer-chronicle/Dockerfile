@@ -31,9 +31,16 @@ RUN (cd $S4EXT/SlicerChronicle/SlicerChronicle; \
         rm -rf reqests-checkout; \
         )
 
+# Get SlicerWeb module
+RUN (cd $S4EXT; \
+	git clone https://github.com/pieper/SlicerWeb.git SlicerWeb; \
+        chown -R researcher:researcher SlicerWeb \
+        )
+EXPOSE 2016
+
 
 COPY /home/researcher/.slicerrc.py /home/researcher
 RUN chown -R researcher:researcher /home/researcher/.slicerrc.py
 
 # configure slicer as needed
-ENV SLICER_ARGUMENTS="--additional-module-paths ${S4EXT}/SlicerChronicle/SlicerChronicle"
+ENV SLICER_ARGUMENTS="--additional-module-paths ${S4EXT}/SlicerChronicle/SlicerChronicle ${S4EXT}/SlicerWeb/WebServer"
