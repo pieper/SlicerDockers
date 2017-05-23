@@ -16,6 +16,10 @@ Then run the container with a command like this:
 
 then open `localhost:8080` in your browser and click the "X11 Session" button.
 
+Close the container down again with:
+
+ docker rm -f slicer
+
 
 [slicer]: http://slicer.org
 

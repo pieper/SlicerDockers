@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Slicer
+Comment=3D Slicer
+Exec=/opt/slicer/Slicer3 ${SLICER_ARGUMENTS}
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Icon=/opt/slicer/slicer.png

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<!--<menu id="terminals-menu" label="Terminals" execute="/usr/libexec/openbox-xdg-menu /etc/xdg/openbox/terminals"/>-->
+
+<menu id="root-menu" label="SlicerDocker">
+  <separator label="Openbox"/>
+  <item label="Slicer">
+    <action name="Execute">
+      <command>/bin/bash -c "/opt/slicer/Slicer ${SLICER_ARGUMENTS}"</command>
+    </action>
+  </item>
+  <!--<menu id="terminals-menu"/>
+  <separator/>
+  <item label="Reconfigure X11">
+    <action name="Reconfigure" />
+  </item>
+  <item label="Exit">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+  -->
+</menu>
+
+</openbox_menu>
