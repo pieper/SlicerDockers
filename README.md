@@ -4,7 +4,8 @@ environment for [3D Slicer][slicer].
 It includes:
 * base: a gui-less debian with file management via webdav
 * x11: a basic gui environment with noVNC
-* slicer: a version of Slicer you can connect to
+* slicer-dev: pre-installed developer environment to build Slicer
+* slicer: a binary distribution version of Slicer you can connect to
 * slicer-chronicle: an example of a customized slicer
 
 The build.sh script shows how to make the dockers (change the account

@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  <title>FindMPI &mdash; CMake 3.9.0-rc6 Documentation</title>
+
+    
+    <link rel="stylesheet" href="../_static/cmake.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.9.0-rc6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FindOpenAL" href="FindOpenAL.html" />
+    <link rel="prev" title="FindMPEG" href="FindMPEG.html" />
+  
+ 
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="FindOpenAL.html" title="FindOpenAL"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FindMPEG.html" title="FindMPEG"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="../_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://cmake.org/">CMake</a> &#187;
+  </li>
+  <li>
+    <a href="../index.html">3.9.0-rc6 Documentation</a> &#187;
+  </li>
+
+          <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="findmpi">
+<span id="module:FindMPI"></span><h1>FindMPI<a class="headerlink" href="#findmpi" title="Permalink to this headline">¶</a></h1>
+<p>Find a Message Passing Interface (MPI) implementation</p>
+<p>The Message Passing Interface (MPI) is a library used to write
+high-performance distributed-memory parallel applications, and is
+typically deployed on a cluster.  MPI is a standard interface (defined
+by the MPI forum) for which many implementations are available.</p>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>This module will set the following variables per language in your
+project, where <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code> is one of C, CXX, or Fortran:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_FOUND</span></code></dt>
+<dd>Variable indicating the MPI settings for <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code> were found.</dd>
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_COMPILER</span></code></dt>
+<dd>MPI Compiler wrapper for <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code>.</dd>
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_COMPILE_FLAGS</span></code></dt>
+<dd>Compilation flags for MPI programs, separated by spaces.
+This is <em>not</em> a <a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-lists"><span class="std std-ref">;-list</span></a>.</dd>
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_INCLUDE_PATH</span></code></dt>
+<dd>Include path(s) for MPI header.</dd>
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_LINK_FLAGS</span></code></dt>
+<dd>Linker flags for MPI programs.</dd>
+<dt><code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_LIBRARIES</span></code></dt>
+<dd>All libraries to link MPI programs against.</dd>
+</dl>
+<p>Additionally, the following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal"><span class="pre">IMPORTED</span></code></a> targets are defined:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">MPI::MPI_&lt;lang&gt;</span></code></dt>
+<dd>Target for using MPI from <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code>.</dd>
+</dl>
+<p>Additionally, FindMPI sets the following variables for running MPI
+programs from the command line:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">MPIEXEC</span></code></dt>
+<dd>Executable for running MPI programs, if provided.</dd>
+<dt><code class="docutils literal"><span class="pre">MPIEXEC_NUMPROC_FLAG</span></code></dt>
+<dd>Flag to pass to <code class="docutils literal"><span class="pre">MPIEXEC</span></code> before giving it the number of processors to run on.</dd>
+<dt><code class="docutils literal"><span class="pre">MPIEXEC_MAX_NUMPROCS</span></code></dt>
+<dd>Number of MPI processors to utilize. Defaults to the number
+of processors detected on the host system.</dd>
+<dt><code class="docutils literal"><span class="pre">MPIEXEC_PREFLAGS</span></code></dt>
+<dd>Flags to pass to <code class="docutils literal"><span class="pre">MPIEXEC</span></code> directly before the executable to run.</dd>
+<dt><code class="docutils literal"><span class="pre">MPIEXEC_POSTFLAGS</span></code></dt>
+<dd>Flags to pass to <code class="docutils literal"><span class="pre">MPIEXEC</span></code> after other flags.</dd>
+</dl>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To use this module, call <code class="docutils literal"><span class="pre">find_package(MPI)</span></code>.  If you are happy with the
+auto-detected configuration for your language, then you&#8217;re done.  If
+not, you have two options:</p>
+<ol class="arabic simple">
+<li>Set <code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_COMPILER</span></code> to the MPI wrapper (e.g. <code class="docutils literal"><span class="pre">mpicc</span></code>) of your
+choice and reconfigure.  FindMPI will attempt to determine all the
+necessary variables using <em>that</em> compiler&#8217;s compile and link flags.</li>
+<li>If this fails, or if your MPI implementation does not come with
+a compiler wrapper, then set both <code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_LIBRARIES</span></code> and
+<code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_INCLUDE_PATH</span></code>.  You may also set any other variables
+listed above, but these two are required.  This will circumvent
+autodetection entirely.</li>
+</ol>
+<p>When configuration is successful, <code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_COMPILER</span></code> will be set to
+the compiler wrapper for <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code>, if it was found. <code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_FOUND</span></code>
+and other variables above will be set if any MPI implementation was
+found for <code class="docutils literal"><span class="pre">&lt;lang&gt;</span></code>, regardless of whether a compiler was found.</p>
+<p>When using <code class="docutils literal"><span class="pre">MPIEXEC</span></code> to execute MPI applications, you should typically
+use all of the <code class="docutils literal"><span class="pre">MPIEXEC</span></code> flags as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS}
+  ${MPIEXEC_PREFLAGS} EXECUTABLE ${MPIEXEC_POSTFLAGS} ARGS
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">EXECUTABLE</span></code> is the MPI program, and <code class="docutils literal"><span class="pre">ARGS</span></code> are the arguments to
+pass to the MPI program.</p>
+</div>
+<div class="section" id="backward-compatibility">
+<h2>Backward Compatibility<a class="headerlink" href="#backward-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>For backward compatibility with older versions of FindMPI, these
+variables are set, but deprecated:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MPI_FOUND</span>           <span class="n">MPI_COMPILER</span>        <span class="n">MPI_LIBRARY</span>
+<span class="n">MPI_COMPILE_FLAGS</span>   <span class="n">MPI_INCLUDE_PATH</span>    <span class="n">MPI_EXTRA_LIBRARY</span>
+<span class="n">MPI_LINK_FLAGS</span>      <span class="n">MPI_LIBRARIES</span>
+</pre></div>
+</div>
+<p>In new projects, please use the <code class="docutils literal"><span class="pre">MPI_&lt;lang&gt;_XXX</span></code> equivalents.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">FindMPI</a><ul>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#backward-compatibility">Backward Compatibility</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FindMPEG.html"
+                        title="previous chapter">FindMPEG</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FindOpenAL.html"
+                        title="next chapter">FindOpenAL</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/module/FindMPI.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="FindOpenAL.html" title="FindOpenAL"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FindMPEG.html" title="FindMPEG"
+             >previous</a> |</li>
+  <li>
+    <img src="../_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://cmake.org/">CMake</a> &#187;
+  </li>
+  <li>
+    <a href="../index.html">3.9.0-rc6 Documentation</a> &#187;
+  </li>
+
+          <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2000-2017 Kitware, Inc. and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>
