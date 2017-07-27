@@ -19,6 +19,9 @@ RUN apt-get install -y \
   libglu1-mesa libgl1-mesa-dev libosmesa6-dev libglu1-mesa-dev \
   qt-sdk
 
+# for Qt5 binaries
+RUN apt-get install -y libnss3-dev
+
 # includes our version of cmake
 COPY usr /usr
 
