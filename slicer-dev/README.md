@@ -8,9 +8,11 @@ Then connect to localhost:8080 to interact.
 
 # Simple build with defaults (using Qt4 preinstalled on this docker):
 
+```
 git clone https://github.com/Slicer/Slicer
 mkdir Slicer-superbuild
 (cd Slicer-superbuild; cmake ../Slicer; make) && ./Slicer-superbuild/Slicer-build/Slicer
+```
 
 
 # Experimental Qt5 build
