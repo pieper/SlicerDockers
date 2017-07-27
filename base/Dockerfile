@@ -2,7 +2,7 @@
 
 # Base image for other SlicerDocker platform images
 # (based on https://github.com/dit4c/dockerfile-dit4c-container-base)
-FROM debian:8
+FROM debian:9
 MAINTAINER pieper@isomics.com
 
 # Directories that don't need to be preserved in images
@@ -10,11 +10,6 @@ VOLUME ["/var/cache/apt", "/tmp"]
 
 # Allow HTTPS right from the start
 RUN apt-get update && apt-get install -y apt-transport-https && apt-get clean
-
-# Install Nginx repo
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 7BD9BF62 && \
-  echo "deb https://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list && \
-  echo "deb-src https://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list
 
 # Install
 # - sudo and passwd for creating user/giving sudo
@@ -42,14 +37,9 @@ RUN apt-get update && \
   apt-get install -y python-kid python-flup && \
   apt-get clean
 
-# Install EasyDAV
-COPY easydav_fix-archive-download.patch /tmp/
+## Install EasyDAV
 RUN cd /opt && \
-  curl http://koti.kapsi.fi/jpa/webdav/easydav-0.4.tar.gz | tar zxvf - && \
-  mv easydav-0.4 easydav && \
-  cd easydav && \
-  patch -p1 < /tmp/easydav_fix-archive-download.patch && \
-  cd -
+  git clone https://github.com/pieper/easydav
 
 # Log directory for easydav & supervisord
 RUN mkdir -p /var/log/easydav /var/log/supervisor
@@ -60,6 +50,7 @@ COPY opt /opt
 COPY var /var
 
 # Check nginx config is OK
+RUN useradd -m nginx
 RUN nginx -t
 
 EXPOSE 8080
