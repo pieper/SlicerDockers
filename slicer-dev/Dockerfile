@@ -17,7 +17,7 @@ RUN apt-get install -y \
   libx11-dev libxt-dev \
   libfontconfig-dev libxrender-dev libncurses5-dev \
   libglu1-mesa libgl1-mesa-dev libosmesa6-dev libglu1-mesa-dev \
-  qt-sdk
+  qt-sdk libqtwebkit-dev
 
 # for Qt5 binaries
 RUN apt-get install -y libnss3-dev
