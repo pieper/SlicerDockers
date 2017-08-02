@@ -14,6 +14,8 @@ git clone https://github.com/Slicer/Slicer
 mkdir Slicer-superbuild
 (cd Slicer-superbuild; \
   cmake \
+    -DSlicer_USE_PYTHONQT_WITH_OPENSSL:BOOL=OFF \
+    -DSlicer_BUILD_DataStore:BOOL=OFF \
     -DSlicer_BUILD_CLI_SUPPORT:BOOL=OFF \
     -DSlicer_USE_SimpleITK:BOOL=OFF \
     ../Slicer;
