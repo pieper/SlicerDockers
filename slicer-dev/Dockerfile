@@ -8,7 +8,8 @@ RUN apt-get update
 
 # useful utilities
 RUN apt-get install -y \
-  vim-gnome exuberant-ctags
+  vim-gnome exuberant-ctags \
+  git-gui
 
 # core Slicer dependencies
 RUN apt-get install -y \

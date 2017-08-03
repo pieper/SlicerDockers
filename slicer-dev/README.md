@@ -10,23 +10,26 @@ Then connect to localhost:8080 to interact.
 
 For a quicker limited build:
 ```
-git clone https://github.com/Slicer/Slicer
-mkdir Slicer-superbuild
-(cd Slicer-superbuild; \
-  cmake \
-    -DSlicer_USE_PYTHONQT_WITH_OPENSSL:BOOL=OFF \
-    -DSlicer_BUILD_DataStore:BOOL=OFF \
-    -DSlicer_BUILD_CLI_SUPPORT:BOOL=OFF \
-    -DSlicer_USE_SimpleITK:BOOL=OFF \
-    ../Slicer;
-  make) \
-&& ./Slicer-superbuild/Slicer-build/Slicer
+git clone https://github.com/Slicer/Slicer \
+&& mkdir Slicer-superbuild \
+&& cd Slicer-superbuild \
+&& cmake \
+  -DSlicer_USE_PYTHONQT_WITH_OPENSSL:BOOL=OFF \
+  -DSlicer_BUILD_DataStore:BOOL=OFF \
+  -DSlicer_BUILD_CLI_SUPPORT:BOOL=OFF \
+  -DSlicer_USE_SimpleITK:BOOL=OFF \
+  ../Slicer \
+&& make -j8 2>&1 | tee /tmp/log.txt \
+&& ./Slicer-build/Slicer
 ```
 or for a complete build:
 ```
-git clone https://github.com/Slicer/Slicer
-mkdir Slicer-superbuild
-(cd Slicer-superbuild; cmake ../Slicer; make) && ./Slicer-superbuild/Slicer-build/Slicer
+git clone https://github.com/Slicer/Slicer \
+&& mkdir Slicer-superbuild \
+&& cd Slicer-superbuild \
+&& cmake ../Slicer \
+&& make -j8 2>&1 | tee /tmp/log.txt \
+&& ./Slicer-superbuild/Slicer-build/Slicer
 ```
 
 # Experimental Qt5 build
