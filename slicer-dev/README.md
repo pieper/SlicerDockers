@@ -34,6 +34,7 @@ git clone https://github.com/Slicer/Slicer \
 
 # Experimental Qt5 build
 
+## Get pre-built
 ```
 cd /tmp
 wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
@@ -42,6 +43,21 @@ chmod +x qt-unified-linux-x64-online.run
 ```
 
 Follow online prompts.  You can skip registration.  Accept default options for install.
+
+## Build from source
+
+RUN wget http://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz && \
+   tar xf qt-everywhere-opensource-src-5.9.1.tar.xz && \
+   rm qt-everywhere-opensource-src-5.9.1.tar.xz && \
+   cd qt-everywhere-opensource-src-5.9.1 && \
+   ./configure \
+     -opensource -confirm-license \
+     -no-compile-examples \
+     -icu -openssl -qt-xcb -opengl -gui -widgets \
+     -release && \
+   make -j$(nproc) && \
+   make install && \
+   cd .. && rm -rf qt-everywhere-opensource*
 
 
 ```

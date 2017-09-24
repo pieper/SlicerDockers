@@ -22,8 +22,9 @@ RUN apt-get install -y \
   qt-sdk libqtwebkit-dev
 
 # for Qt5 binaries
-RUN apt-get install -y libnss3-dev
+RUN apt-get install -y \
+  libnss3-dev \
+  libicu-dev icu-devtools
 
 # includes our version of cmake
 COPY usr /usr
-
