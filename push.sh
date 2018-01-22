@@ -5,3 +5,5 @@ docker push stevepieper/slicer3
 docker push stevepieper/slicer
 
 docker push stevepieper/slicer-chronicle
+
+docker push stevepieper/slicer-dev
