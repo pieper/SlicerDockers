@@ -38,6 +38,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC && \
   rm -rf /opt/noVNC/.git
 
+# update websockify
+RUN git clone https://github.com/novnc/websockify.git /tmp/websockify && \
+  ls -lrt /usr/lib/python2.7/dist-packages/websockify && \
+  rm /usr/lib/python2.7/dist-packages/websockify/*.pyc && \
+  cp /tmp/websockify/websockify/*.py /usr/lib/python2.7/dist-packages/websockify && \
+  ls -lrt /usr/lib/python2.7/dist-packages/websockify
+
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
 COPY usr /usr
