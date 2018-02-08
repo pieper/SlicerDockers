@@ -22,5 +22,12 @@ Close the container down again with:
  docker rm -f slicer
 
 
+Also works with [hyper](http://hyper.sh)
+
+```
+hyper run -d -p 80:8080 -p 2016:2016 --name slicer stevepieper/slicer-chronicle
+hyper fip attach 199.245.58.37 slicer
+```
+
 [slicer]: http://slicer.org
 
