@@ -1,9 +1,10 @@
+VERSION="v4.8.1"
 
-docker push stevepieper/base
-docker push stevepieper/x11
-docker push stevepieper/slicer3
-docker push stevepieper/slicer
+docker push stevepieper/base:$VERSION
+docker push stevepieper/x11:$VERSION
+docker push stevepieper/slicer3:$VERSION
+docker push stevepieper/slicer:$VERSION
 
-docker push stevepieper/slicer-chronicle
+docker push stevepieper/slicer-chronicle:$VERSION
 
-docker push stevepieper/slicer-dev
+docker push stevepieper/slicer-dev:$VERSION
