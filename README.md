@@ -24,3 +24,48 @@ Close the container down again with:
 
 [slicer]: http://slicer.org
 
+
+# Running a Slicer analysis script in an instance
+
+The script below can be run in an instance and can be used as a template for more sophisticated analysis scripts.
+
+```
+"""
+Here's a simple proof of concept example to run a slicer based script
+in a docker instance.
+
+Note that this runs in a full virtualized desktop envionment, so anything
+that works in Slicer on a desktop should also work in the docker instance,
+including rendering operations.
+
+First create a directory called /tmp/shared that will serve as the bridge
+between the host and the instance.
+
+Then copy this file myScript.py into /tmp/shared
+
+Run this script with a command like the following:
+
+docker run -v /tmp/shared:/tmp/shared -p 8080:8080 --rm -it --env SLICER_ARGUMENTS="--python-script /tmp/shared/myScript.py" stevepieper/slicer
+
+it should print some diagnostic info and then exit.
+
+After it runs you will have a copy of the MRHead.nrrd sample data in the /tmp/shared directory.
+"""
+
+# as an example, download data and save it locally
+import SampleData
+mrHeadVolume = SampleData.downloadSample("MRHead")
+slicer.util.saveNode(mrHeadVolume, "/tmp/MRHead-from-docker.nrrd")
+
+import os
+
+if False:
+  # enable this if you want to be able to connect to the virtual desktop at localhost:8080
+  qt.QMessageBox.information(None, "hoot", 'hello from Slicer')
+
+# use sudo to copy into the shared folder
+os.system("sudo cp /tmp/MRHead-from-docker.nrrd /tmp/shared/MRHead-from-docker.nrrd")
+
+# gracefully shut down the docker instance
+os.system('sudo kill -s SIGTERM 1')
+```
