@@ -59,10 +59,6 @@ slicer.util.saveNode(mrHeadVolume, "/tmp/MRHead-from-docker.nrrd")
 
 import os
 
-if False:
-  # enable this if you want to be able to connect to the virtual desktop at localhost:8080
-  qt.QMessageBox.information(None, "hoot", 'hello from Slicer')
-
 # use sudo to copy into the shared folder
 os.system("sudo cp /tmp/MRHead-from-docker.nrrd /tmp/shared/MRHead-from-docker.nrrd")
 
