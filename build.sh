@@ -1,4 +1,4 @@
-VERSION="v4.8.1"
+VERSION="latest"
 
 docker build -t stevepieper/base:$VERSION base
 docker build -t stevepieper/x11:$VERSION x11

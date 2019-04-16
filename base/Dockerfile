@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.0
 
 # Base image for other SlicerDocker platform images
-# (based on https://github.com/dit4c/dockerfile-dit4c-container-base)
+# (inspired by https://github.com/dit4c/dockerfile-dit4c-container-base)
 FROM debian:9
 MAINTAINER pieper@isomics.com
 

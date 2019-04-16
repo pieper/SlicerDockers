@@ -30,9 +30,14 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     tint2 \
     xterm \
     lxrandr \
-    nitrogen && \
+    nitrogen \
+    libpulse-dev \
+    libnss3 \
+    libasound2 \
+    && \
   rm -f /usr/share/applications/x11vnc.desktop && \
   apt-get clean
+
 
 # Get noVNC
 RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC && \

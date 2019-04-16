@@ -1,4 +1,4 @@
-VERSION="v4.8.1"
+VERSION="latest"
 
 docker push stevepieper/base:$VERSION
 docker push stevepieper/x11:$VERSION
