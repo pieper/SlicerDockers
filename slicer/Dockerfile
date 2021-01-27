@@ -7,12 +7,11 @@ MAINTAINER pieper@isomics.com
 RUN apt-get install -y libglu1-mesa
 
 # Slicer 4.5: http://download.slicer.org/bitstream/461634
-# Slicer 4.6.2 http://download.slicer.org/bitstream/561384"
-# Slicer 4.8.0 http://download.slicer.org/bitstream/561384"
-# Slicer 4.8.1 http://download.slicer.org/bitstream/738960"
+# Slicer 4.8.1 http://download.slicer.org/bitstream/738960
+# Slicer 4.10.1 http://download.slicer.org/bitstream/944596
 
-# Slicer 4.10.1
-RUN SLICER_URL="http://download.slicer.org/bitstream/944596" && \
+# Slicer 4.10.2
+RUN SLICER_URL="http://download.slicer.org/bitstream/1023242" && \
   curl -v -s -L $SLICER_URL | tar xz -C /tmp && \
   mv /tmp/Slicer* /opt/slicer
 
