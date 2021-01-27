@@ -1,5 +1,3 @@
-# dit4c/dit4c-container-slicer
+# slicer-chronicle
 
-[![](https://badge.imagelayers.io/dit4c/dit4c-container-slicer:latest.svg)](https://imagelayers.io/?images=dit4c/dit4c-container-slicer:latest)
-
-[Slicer](https://www.slicer.org/) Docker image for DIT4C
+[Slicer](https://www.slicer.org/) plus some extra extensions for testing
