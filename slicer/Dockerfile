@@ -1,17 +1,23 @@
 # SlicerDocker platform image
 # (based on https://github.com/dit4c/dockerfile-dit4c-container-slicer)
 
-FROM stevepieper/x11
+ARG VERSION="latest"
+
+FROM stevepieper/x11:${VERSION}
 MAINTAINER pieper@isomics.com
 
 RUN apt-get install -y libglu1-mesa
+RUN apt-get install -y libpulse-dev libnss3 libglu1-mesa
+RUN apt-get install -y --reinstall libxcb-xinerama0
+RUN apt-get install -y libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0
 
 # Slicer 4.5: http://download.slicer.org/bitstream/461634
 # Slicer 4.8.1 http://download.slicer.org/bitstream/738960
 # Slicer 4.10.1 http://download.slicer.org/bitstream/944596
+# Slicer 4.10.2 http://download.slicer.org/bitstream/1023242
 
-# Slicer 4.10.2
-RUN SLICER_URL="http://download.slicer.org/bitstream/1023242" && \
+# Slicer 4.11.20200930
+RUN SLICER_URL="http://download.slicer.org/bitstream/1341035" && \
   curl -v -s -L $SLICER_URL | tar xz -C /tmp && \
   mv /tmp/Slicer* /opt/slicer
 

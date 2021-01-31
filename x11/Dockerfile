@@ -1,7 +1,10 @@
 # DOCKER-VERSION 1.0
 # x11 image for other SlicerDocker platform images
 # (based on https://github.com/dit4c/dockerfile-dit4c-container-x11 debian branch)
-FROM stevepieper/base
+
+ARG VERSION="latest"
+
+FROM stevepieper/base:${VERSION}
 MAINTAINER pieper@isomics.com
 
 # Install

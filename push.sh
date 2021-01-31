@@ -1,3 +1,4 @@
+#VERSION="4.11.20200930"
 VERSION="latest"
 
 docker push stevepieper/base:$VERSION

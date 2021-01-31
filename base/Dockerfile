@@ -2,7 +2,7 @@
 
 # Base image for other SlicerDocker platform images
 # (inspired by https://github.com/dit4c/dockerfile-dit4c-container-base)
-FROM debian:9
+FROM ubuntu:20.04
 MAINTAINER pieper@isomics.com
 
 # Directories that don't need to be preserved in images
@@ -27,22 +27,8 @@ RUN apt-get update && apt-get install -y \
 # Install Git
 RUN apt-get update && apt-get install -y git && apt-get clean
 
-# Install gotty
-RUN VERSION=v0.0.12 && \
-  curl -sL https://github.com/yudai/gotty/releases/download/$VERSION/gotty_linux_amd64.tar.gz \
-    | tar xzC /usr/local/bin
-
-# Install EasyDAV dependencies
-RUN apt-get update && \
-  apt-get install -y python-kid python-flup && \
-  apt-get clean
-
-## Install EasyDAV
-RUN cd /opt && \
-  git clone https://github.com/pieper/easydav
-
-# Log directory for easydav & supervisord
-RUN mkdir -p /var/log/easydav /var/log/supervisor
+# Log directory for supervisord
+RUN mkdir -p /var/log/supervisor
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
@@ -65,7 +51,7 @@ RUN useradd -m researcher -s /bin/bash && \
     sed -i -e '/stdout.*uname/s/^/#/' /etc/pam.d/login && \
     echo 'source /etc/profile.d/prompt.sh' >> /etc/bash.bashrc
 
-RUN chown -R researcher /var/log/easydav /var/log/supervisor
+RUN chown -R researcher /var/log/supervisor
 
 # Logs do not need to be preserved when exporting
 VOLUME ["/var/log"]

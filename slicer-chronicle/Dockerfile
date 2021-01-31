@@ -1,6 +1,8 @@
 # SlicerChronicle customized docker
 
-FROM stevepieper/slicer
+ARG VERSION="latest"
+
+FROM stevepieper/slicer:${VERSION}
 MAINTAINER pieper@isomics.com
 
 ARG COUCHDB_URL=http://quantome.org:5984
