@@ -26,6 +26,7 @@ COPY /etc /etc
 COPY /opt /opt
 COPY /usr /usr
 
+RUN chmod -R a+w /opt/slicer
 
 # See http://na-mic.org/Mantis/view.php?id=4015
 RUN su researcher -c "mkdir /home/researcher/Documents"
