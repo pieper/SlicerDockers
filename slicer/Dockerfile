@@ -8,8 +8,9 @@ MAINTAINER pieper@isomics.com
 
 RUN apt-get install -y libglu1-mesa
 RUN apt-get install -y libpulse-dev libnss3 libglu1-mesa
-RUN apt-get install -y --reinstall libxcb-xinerama0
 RUN apt-get install -y libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xkb1 libxkbcommon-x11-0
+RUN apt-get install -y libxcb-shape0 libxcb-xinerama0 libxcb-xinerama0-dev
+RUN apt-get install -y libxcb-icccm4-dev libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0 libxcb-xkb-dev libxkbcommon-x11-dev
 
 # Slicer 4.5: http://download.slicer.org/bitstream/461634
 # Slicer 4.8.1 http://download.slicer.org/bitstream/738960
@@ -17,8 +18,8 @@ RUN apt-get install -y libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render
 # Slicer 4.10.2 http://download.slicer.org/bitstream/1023242
 
 # Slicer 4.11.20200930
-RUN SLICER_URL="http://download.slicer.org/bitstream/1341035" && \
-  curl -v -s -L $SLICER_URL | tar xz -C /tmp && \
+RUN SLICER_URL="https://download.slicer.org/bitstream/60add70fae4540bf6a89bfb4" && \
+  curl -k -v -s -L $SLICER_URL | tar xz -C /tmp && \
   mv /tmp/Slicer* /opt/slicer
 
 # copy /opt after extraction slicer (/opt/slicer is extracted tar)
