@@ -1,5 +1,7 @@
 # Ignore all dotfiles...
 .*
+# except gitignore
+!.gitignore
 
 # Ignore all back-up files...
 *~
@@ -19,3 +21,6 @@ tags
 
 # Ignore pyc files ...
 *.pyc
+
+# Ignore log files
+log-*
