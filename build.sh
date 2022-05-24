@@ -1,6 +1,7 @@
 #!/bin/bash
 
-VERSION="4.11.20200930"
+#VERSION="4.11.20200930"
+VERSION="5.0.2"
 
 docker build --build-arg VERSION=${VERSION} -t stevepieper/base:$VERSION base
 docker build --build-arg VERSION=${VERSION} -t stevepieper/x11:$VERSION x11
@@ -12,7 +13,7 @@ docker build \
   --build-arg VERSION=${VERSION} --build-arg SLICER_EXTS="${SLICER_MORPH_EXTS}" \
   -t stevepieper/slicer-morph:$VERSION slicer-plus
 
-SLICER_DMRI_EXTS="ukftractography SlicerDMRI"
+SLICER_DMRI_EXTS="UKFTractography SlicerDMRI"
 
 docker build \
   --build-arg VERSION=${VERSION} --build-arg SLICER_EXTS="${SLICER_DMRI_EXTS}" \
