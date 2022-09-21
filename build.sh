@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #VERSION="4.11.20200930"
-VERSION="5.0.2"
+VERSION="5.0.3"
 
 docker build --build-arg VERSION=${VERSION} -t stevepieper/base:$VERSION base
 docker build --build-arg VERSION=${VERSION} -t stevepieper/x11:$VERSION x11

@@ -13,7 +13,7 @@ from stevepieper to your docker hub name)
 
 Then run the container with a command like this:
 
-`docker run -d -p 8080:8080 --name slicer stevepieper/slicer:5.0.2`
+`docker run -d -p 8080:8080 --name slicer stevepieper/slicer:5.0.3`
 
 then open `localhost:8080` in your browser and click the "X11 Session" button.
 

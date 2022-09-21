@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #VERSION="4.11.20200930"
-VERSION="5.0.2"
+VERSION="5.0.3"
 
 docker push stevepieper/base:$VERSION
 docker push stevepieper/x11:$VERSION
