@@ -23,7 +23,6 @@ MAINTAINER pieper@isomics.com
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libgl1-mesa-dri \
     xserver-xorg-video-dummy \
-    xserver-xorg-input-void \
     x11-xserver-utils \
     xinit \
     fonts-dejavu \
@@ -48,7 +47,6 @@ RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC && \
 
 # Add supporting files (directory at a time to improve build speed)
 COPY etc /etc
-COPY usr /usr
 COPY var /var
 
 RUN echo "allowed_users=anybody" > /etc/X11/Xwrapper.config

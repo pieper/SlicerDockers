@@ -8,6 +8,8 @@ docker build --build-arg VERSION=${VERSION} -t stevepieper/base:$VERSION base
 docker build --build-arg VERSION=${VERSION} -t stevepieper/x11:$VERSION x11
 docker build --build-arg VERSION=${VERSION} -t stevepieper/slicer:$VERSION slicer
 
+exit
+
 SLICER_MORPH_EXTS="MarkupsToModel Auto3dgm SegmentEditorExtraEffects Sandbox SlicerIGT RawImageGuess SlicerDcm2nii SurfaceWrapSolidify SlicerMorph"
 
 docker build \
