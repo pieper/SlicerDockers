@@ -2,7 +2,7 @@
 
 # Base image for other SlicerDocker platform images
 # (inspired by https://github.com/dit4c/dockerfile-dit4c-container-base)
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 MAINTAINER pieper@isomics.com
 
 # Directories that don't need to be preserved in images
